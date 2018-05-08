@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:h="http://www.gothmog.ru/ws"
+		   targetNamespace="http://www.gothmog.ru/ws"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified">
+	<xs:element name="house">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="unom" >
+					<xs:simpleType>
+						<xs:restriction base="xs:long">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9223372036854775807"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ao" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="mr" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="20"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="address" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kad_nom" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="100"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="house_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="unom"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>
